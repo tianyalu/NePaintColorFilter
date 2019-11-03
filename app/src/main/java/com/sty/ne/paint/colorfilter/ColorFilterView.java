@@ -90,17 +90,29 @@ public class ColorFilterView extends View {
 //        canvas.drawBitmap(mBitmap, 100, 0, mPaint);
 
         /**
-         * 颜色矩阵-类实现
+         * 颜色矩阵-类实现->实现灰色图像 参考show/gray.png
          */
         ColorMatrix colorMatrix = new ColorMatrix();
         //亮度调节
-        colorMatrix.setScale(2, 1, 1, 1);
+//        colorMatrix.setScale(2, 1, 1, 1);
         //饱和度调节0-无色彩 1-默认效果 >1-饱和度加强
-        colorMatrix.setSaturation(2);
+        colorMatrix.setSaturation(0);
         //色调调节
-        colorMatrix.setRotate(0, 45);
+//        colorMatrix.setRotate(0, 45);
         mColorMatrixColorFilter = new ColorMatrixColorFilter(colorMatrix);
         mPaint.setColorFilter(mColorMatrixColorFilter);
         canvas.drawBitmap(mBitmap, 100, 0, mPaint);
+
+
+//        int width, height;
+//        height = mBitmap.getHeight();
+//        width = mBitmap.getWidth();
+//        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+//        Canvas c = new Canvas(bmpGrayscale);
+//        ColorMatrix cm = new ColorMatrix();
+//        cm.setSaturation(0);
+//        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
+//        mPaint.setColorFilter(f);
+//        c.drawBitmap(mBitmap, 0, 0, mPaint);
     }
 }
